@@ -1,0 +1,14 @@
+description: >
+  Checks for missing translations.
+# What will this command do?
+# Descriptions should be short, simple, and clear.
+parameters:
+  projectId:
+    type: string
+    description: "Lokalise project id"
+steps:
+  - run:
+      environment:
+        PROJECT_ID: <<parameters.projectId>>
+      name: Check for missing translations
+      command: node scripts/check-missing.js
