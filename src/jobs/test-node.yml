@@ -1,0 +1,14 @@
+description: >
+  Test a test running a node script
+# What will this job do?
+# Descriptions should be short, simple, and clear.
+
+executor: node
+
+parameters:
+  projectId:
+    type: string
+    description: "Lokalise Project Id"
+steps:
+  - check-missing:
+      projectId: << parameters.projectId >>
