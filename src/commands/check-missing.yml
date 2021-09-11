@@ -11,4 +11,4 @@ steps:
       environment:
         PROJECT_ID: <<parameters.projectId>>
       name: Check for missing translations
-      command: node scripts/check-missing.js
+      command: check-missing

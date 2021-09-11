@@ -1,4 +1,4 @@
 description: >
   This is a Nodejs executor
 docker:
-  - image: 'cimg/node:14.17'
+  - image: 'grantwilliams/test-node-orb:latest'

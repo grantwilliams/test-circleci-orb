@@ -1,0 +1,14 @@
+{
+  "name": "translations",
+  "version": "1.0.0",
+  "description": "",
+  "main": "check-missing.js",
+  "scripts": {
+    "check-missing": "./check-missing.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lodash.isequal": "^4.5.0"
+  }
+}
