@@ -8,8 +8,8 @@ orbs:
   shellcheck: circleci/shellcheck@2.0
 
 references:
-  env_common: &env_common
-    VAR_CHANGED: ${TEST_VAR}
+  common-params: &common-params
+    to: Grant williams
 
 # Pipeline Parameters
 ## These parameters are used internally by orb-tools. Skip to the Jobs section.
@@ -43,7 +43,7 @@ jobs:
       # This sample integration test will run as long as the greet command exists. Once you remove the greet command you should remove this line.
       # Push new changes first, before adding new tests to your config.
       - test-circleci-orb/greet:
-          to: <<parameters.to>>
+          <<: *common-params
 
 workflows:
   # Prior to producing a development orb (which requires credentials) basic validation, linting, and even unit testing can be performed.
