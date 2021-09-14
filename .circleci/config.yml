@@ -31,13 +31,17 @@ jobs:
   integration-test-1:
     docker:
       - image: cimg/base:stable
-    environment: *env_common
+    parameters:
+      to:
+        type: string
+        default: $TEST_VAR
     steps:
       - checkout
       # "greet" is a sample command packaged with this orb config.
       # This sample integration test will run as long as the greet command exists. Once you remove the greet command you should remove this line.
       # Push new changes first, before adding new tests to your config.
-      - test-circleci-orb/greet
+      - test-circleci-orb/greet:
+          to: <<parameters.to>>
 
 workflows:
   # Prior to producing a development orb (which requires credentials) basic validation, linting, and even unit testing can be performed.
