@@ -9,7 +9,7 @@ orbs:
   
 references:
   env_common: &env_common
-    VAR_CHANGED: $TEST_VAR
+    VAR_CHANGED: ${TEST_VAR}
 
 # Pipeline Parameters
 ## These parameters are used internally by orb-tools. Skip to the Jobs section.
