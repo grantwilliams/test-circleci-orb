@@ -35,8 +35,8 @@ jobs:
       TEST_VAR: my-new-test-var
     parameters:
       to:
-        type: string
-        default: ''
+        type: env_var_name
+        default: TEST_VAR
     steps:
       - checkout
       # "greet" is a sample command packaged with this orb config.
