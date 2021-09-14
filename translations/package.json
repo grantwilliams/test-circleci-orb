@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "check-missing.js",
-  "scripts": {
+  "bin": {
     "check-missing": "./check-missing.js"
   },
   "author": "",
