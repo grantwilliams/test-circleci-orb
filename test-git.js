@@ -3,12 +3,14 @@ const { promisify } = require('util');
 
 const execPromisified = promisify(childProcess.exec);
 const exec = async command => {
+  console.log('command::', command);
   try {
-    const { stdout } = await execPromisified(command);
-    console.log('stdout::', stdout);
-    return stdout.trim();
-  } catch ({ stderr }) {
-    console.log('stderr::', stderr);
+    const { stdout, stderr } = await execPromisified(command);
+    console.log('stdout::try', stdout);
+    console.log('stderr::try::', stderr);
+    return stdout.trim() ? stdout.trim() : stderr.trim();
+  } catch (stderr) {
+    console.log('stderr::catch::', stderr);
     return stderr.trim();
   }
 };
