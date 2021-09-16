@@ -18,7 +18,12 @@ const exec = async command => {
 
   if (fetchOutput.indexOf("fatal: couldn't find remote")) {
     console.log('No remote');
+    process.exit(0);
   }
+
+  await exec('git checkout my-new-branch');
+  await exec('git pull');
+  await exec('git log');
 
   console.log(fetchOutput);
 })();
