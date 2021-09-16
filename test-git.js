@@ -5,10 +5,12 @@ const execPromisified = promisify(childProcess.exec);
 const exec = async command => {
   console.log('command::', command);
   try {
-    const { stdout, stderr } = await execPromisified(command);
-    console.log('stdout::try', stdout);
-    console.log('stderr::try::', stderr);
-    return stdout.trim() ? stdout.trim() : stderr.trim();
+    const output = await execPromisified(command);
+    console.log('stdout::try', JSON.stringify(output, null, 2));
+    return {
+      stdout: output.stdout.trim(),
+      stderr: output.stderr.trim(),
+    };
   } catch (stderr) {
     console.log('stderr::catch::', stderr);
     return stderr.trim();
@@ -16,10 +18,10 @@ const exec = async command => {
 };
 
 (async () => {
-  const fetchOutput = await exec('git fetch origin my-new-branch');
+  const { stdout, stderr } = await exec('git fetch origin my-new-branch');
 
-  console.log('fetchOutput::', fetchOutput);
-  if ("fatal: couldn't find remote".indexOf(fetchOutput)) {
+  console.log('fetchOutput::', stdout);
+  if (stderr.contains("fatal: couldn't find remote")) {
     console.log('No remote');
   }
 
