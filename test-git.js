@@ -18,7 +18,9 @@ const exec = async command => {
 };
 
 (async () => {
-  const { stdout, stderr } = await exec('git fetch origin my-new-branch');
+  const { stdout, stderr } = await exec(
+    'git fetch origin my-new-branch-does-not-exist'
+  );
 
   console.log('fetchOutput::', stdout);
   if (stderr.includes("fatal: couldn't find remote")) {
