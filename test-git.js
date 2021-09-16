@@ -13,7 +13,7 @@ const exec = async command => {
     };
   } catch (stderr) {
     console.log('stderr::catch::', stderr.message);
-    return stderr.message.trim();
+    return { stderr: stderr.message.trim() };
   }
 };
 
