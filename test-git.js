@@ -28,7 +28,7 @@ const exec = async command => {
     console.log('No remote');
   }
 
-  await exec('git checkout --track origin/my-new-branch');
+  await exec('git checkout --track origin/my-new-branch-does-not-exist');
   await exec('git branch -vv');
   await exec('git pull');
   await exec('git log');
